@@ -1,0 +1,12 @@
+Building configuration...
+Current configuration:
+!
+version 11.2
+no service udp-small-servers
+no service tcp-small-servers
+!
+hostname Router2
+!
+...
+!
+end
