@@ -1,0 +1,17 @@
+NAME: "c93xx Stack", DESCR: "c93xx Stack"
+PID: C9300-24P         , VID: V05  , SN: FCW2448L0AB
+
+NAME: "Switch 1", DESCR: "C9300-24P"
+PID: C9300-24P         , VID: V05  , SN: FCW2448L0AB
+
+NAME: "Switch 1 - Power Supply A", DESCR: "Switch 1 - Power Supply A"
+PID: PWR-C1-715WAC-P   , VID: V02  , SN: DCA2448A01B
+
+NAME: "Switch 1 - Power Supply B", DESCR: "Switch 1 - Power Supply B"
+PID: PWR-C1-715WAC-P   , VID: V02  , SN: DCA2448A01C
+
+NAME: "TenGigabitEthernet1/1/1", DESCR: "1000BaseSX SFP"
+PID: SFP-10G-SR        , VID: V03  , SN: FNS24480S1A
+
+NAME: "TenGigabitEthernet1/1/2", DESCR: "1000BaseSX SFP"
+PID: SFP-10G-SR        , VID: V03  , SN: FNS24480S1B

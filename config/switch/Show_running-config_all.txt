@@ -1,75 +1,121 @@
 Building configuration...
 
-Current configuration : 11742 bytes
+Current configuration : 28964 bytes
 !
 ! Last configuration change at 14:22:19 CDT Fri Apr 24 2026 by admin
 ! NVRAM config last updated at 14:22:24 CDT Fri Apr 24 2026 by admin
 !
 version 17.9
+no service pad
 service timestamps debug datetime msec localtime show-timezone
 service timestamps log datetime msec localtime show-timezone
+no service password-recovery
 service password-encryption
+service sequence-numbers
 service call-home
+no service config
+no service internal
 platform punt-keepalive disable-kernel-core
+platform console virtual
 !
 hostname SW-ACCESS-01
 !
 boot-start-marker
+boot system switch all flash:packages.conf
 boot-end-marker
 !
+logging userinfo
 logging buffered 64000 informational
 logging console warnings
+logging monitor informational
+logging trap informational
+logging facility local7
 enable secret 9 $9$FvVUkQq9i9uStA$9DnAruYy8jF6b1FZ9T6nSGrUHLnCVVfS7JwdfAKEhS6
 !
 aaa new-model
 !
 aaa authentication login default local
 aaa authorization exec default local
+aaa accounting update newinfo periodic 2880
 !
 clock timezone CST -6 0
 clock summer-time CDT recurring
 switch 1 provision c9300-24p
 !
+system mtu 1500
+memory free low-watermark processor 80526
+!
 ip routing
 !
+no ip bootp server
+no ip source-route
+no ip finger
 no ip domain lookup
 ip domain name lab.example.com
+ip name-server 10.99.0.10 10.99.0.11
+ip cef
+ipv6 cef
+!
+login on-success log
+login on-failure log
 !
 username admin privilege 15 secret 9 $9$aGNsQmxmR2hhRw$C9nlbYx9JDqDUdA0qJWV53K3lZtJgTvjB9UO42ZcRX.
 !
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+!
 vtp mode transparent
+vtp version 2
+!
+vlan 1
+ name default
+ state active
 !
 vlan 10
  name USERS
+ state active
 !
 vlan 20
  name VOICE
+ state active
 !
 vlan 30
  name PRINTERS
+ state active
 !
 vlan 40
  name CAMERAS
+ state active
 !
 vlan 50
  name WIRELESS
+ state active
 !
 vlan 99
  name MANAGEMENT
+ state active
 !
 vlan 999
  name UNUSED
+ state active
 !
 spanning-tree mode rapid-pvst
 spanning-tree extend system-id
 spanning-tree vlan 10,20,30,40,50,99 priority 24576
+spanning-tree pathcost method short
+no spanning-tree optimize bpdu transmission
 !
 errdisable recovery cause bpduguard
 errdisable recovery cause psecure-violation
 errdisable recovery interval 300
 !
 ip dhcp snooping vlan 10,20,30,40,50
+no ip dhcp snooping information option
+ip dhcp snooping database flash:dhcp_snoop.db
 ip dhcp snooping
+!
+ip arp inspection vlan 10,20,30,40,50
 !
 ip access-list standard MGMT-SOURCES
  10 permit 10.99.0.0 0.0.0.255
@@ -88,235 +134,509 @@ policy-map ACCESS-QOS
 !
 interface Port-channel1
  description Uplink to DIST-SW-01
+ switchport
  switchport mode trunk
  switchport trunk native vlan 999
  switchport trunk allowed vlan 10,20,30,40,50,99,999
+ no switchport nonegotiate
+ no ip address
+ no logging event link-status
+ load-interval 300
+ carrier-delay msec 0
+ no shutdown
  ip dhcp snooping trust
+ ip arp inspection trust
+ spanning-tree portfast disable
 !
 interface GigabitEthernet1/0/1
  description User workstation - Finance
+ switchport
  switchport mode access
  switchport access vlan 10
  switchport voice vlan 20
+ no switchport protected
+ no switchport nonegotiate
+ no ip address
+ no logging event link-status
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
+ spanning-tree guard none
+ storm-control broadcast level 10.00
+ storm-control multicast level 10.00
  service-policy output ACCESS-QOS
 !
 interface GigabitEthernet1/0/2
  description User workstation - Engineering
+ switchport
  switchport mode access
  switchport access vlan 10
  switchport voice vlan 20
+ no switchport protected
+ no switchport nonegotiate
+ no ip address
+ no logging event link-status
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
+ spanning-tree guard none
+ storm-control broadcast level 10.00
+ storm-control multicast level 10.00
  service-policy output ACCESS-QOS
 !
 interface GigabitEthernet1/0/3
  description Conference Room Phone
+ switchport
  switchport mode access
  switchport access vlan 10
  switchport voice vlan 20
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
  service-policy output ACCESS-QOS
 !
 interface GigabitEthernet1/0/4
  description Network Printer - 2nd Floor
+ switchport
  switchport mode access
  switchport access vlan 30
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
 !
 interface GigabitEthernet1/0/5
  description Security Camera - East Hall
+ switchport
  switchport mode access
  switchport access vlan 40
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline static max 15400
+ no shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
- power inline static max 15400
 !
 interface GigabitEthernet1/0/6
  description Wireless AP - Lobby
+ switchport
  switchport mode trunk
  switchport trunk native vlan 999
  switchport trunk allowed vlan 50,99,999
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast trunk
+ spanning-tree bpduguard disable
 !
 interface GigabitEthernet1/0/7
  description Wireless AP - West Wing
+ switchport
  switchport mode trunk
  switchport trunk native vlan 999
  switchport trunk allowed vlan 50,99,999
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast trunk
+ spanning-tree bpduguard disable
 !
 interface GigabitEthernet1/0/8
  description Lab bench test port
+ switchport
  switchport mode access
  switchport access vlan 10
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
- shutdown
 !
 interface GigabitEthernet1/0/9
  description Spare
+ switchport
  switchport mode access
  switchport access vlan 999
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
  shutdown
 !
 interface GigabitEthernet1/0/10
  description Spare
+ switchport
  switchport mode access
  switchport access vlan 999
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
  shutdown
 !
 interface GigabitEthernet1/0/11
  description Spare
+ switchport
  switchport mode access
  switchport access vlan 999
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
  shutdown
 !
 interface GigabitEthernet1/0/12
  description Spare
+ switchport
  switchport mode access
  switchport access vlan 999
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
  shutdown
 !
 interface GigabitEthernet1/0/13
  description User workstation - Open Office
+ switchport
  switchport mode access
  switchport access vlan 10
  switchport voice vlan 20
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
+ service-policy output ACCESS-QOS
 !
 interface GigabitEthernet1/0/14
  description User workstation - Open Office
+ switchport
  switchport mode access
  switchport access vlan 10
  switchport voice vlan 20
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
+ service-policy output ACCESS-QOS
 !
 interface GigabitEthernet1/0/15
  description Badge reader
+ switchport
  switchport mode access
  switchport access vlan 40
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
 !
 interface GigabitEthernet1/0/16
  description Printer - Shipping
+ switchport
  switchport mode access
  switchport access vlan 30
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
 !
 interface GigabitEthernet1/0/17
  description Spare
+ switchport
  switchport mode access
  switchport access vlan 999
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
  shutdown
 !
 interface GigabitEthernet1/0/18
  description Spare
- switchport mode access
+ switchport
  switchport access vlan 999
+ switchport mode access
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
  shutdown
 !
 interface GigabitEthernet1/0/19
  description Spare
- switchport mode access
+ switchport
  switchport access vlan 999
+ switchport mode access
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
  shutdown
 !
 interface GigabitEthernet1/0/20
  description Spare
- switchport mode access
+ switchport
  switchport access vlan 999
+ switchport mode access
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
  shutdown
 !
 interface GigabitEthernet1/0/21
  description Uplink member to DIST-SW-01 Gi1/0/21
+ switchport
  switchport mode trunk
  switchport trunk native vlan 999
  switchport trunk allowed vlan 10,20,30,40,50,99,999
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ no shutdown
  channel-group 1 mode active
  ip dhcp snooping trust
+ ip arp inspection trust
+ spanning-tree portfast disable
 !
 interface GigabitEthernet1/0/22
  description Uplink member to DIST-SW-01 Gi1/0/22
+ switchport
  switchport mode trunk
  switchport trunk native vlan 999
  switchport trunk allowed vlan 10,20,30,40,50,99,999
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ no shutdown
  channel-group 1 mode active
  ip dhcp snooping trust
+ ip arp inspection trust
+ spanning-tree portfast disable
 !
 interface GigabitEthernet1/0/23
  description Maintenance laptop
+ switchport
  switchport mode access
  switchport access vlan 99
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
+ no shutdown
  spanning-tree portfast
  spanning-tree bpduguard enable
 !
 interface GigabitEthernet1/0/24
  description Disabled - reserved for staging
+ switchport
  switchport mode access
  switchport access vlan 999
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ mdix auto
+ power inline auto
  shutdown
 !
 interface TenGigabitEthernet1/1/1
  description Routed link to WAN-RTR-01
  no switchport
  ip address 10.255.0.2 255.255.255.252
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
  ip ospf network point-to-point
  ip ospf 10 area 0
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
+ no shutdown
 !
 interface TenGigabitEthernet1/1/2
  description Spare SFP uplink
+ no switchport
+ no ip address
+ load-interval 300
+ speed auto
+ duplex auto
+ negotiation auto
  shutdown
 !
 interface Vlan1
  description Default VLAN - unused
  no ip address
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
  shutdown
 !
 interface Vlan10
  description Users default gateway
  ip address 10.10.10.1 255.255.255.0
  ip helper-address 10.99.0.10
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ arp timeout 14400
  no shutdown
 !
 interface Vlan20
  description Voice default gateway
  ip address 10.10.20.1 255.255.255.0
  ip helper-address 10.99.0.10
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ arp timeout 14400
  no shutdown
 !
 interface Vlan30
  description Printers default gateway
  ip address 10.10.30.1 255.255.255.0
  ip helper-address 10.99.0.10
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ arp timeout 14400
  no shutdown
 !
 interface Vlan40
  description Cameras default gateway
  ip address 10.10.40.1 255.255.255.0
  ip helper-address 10.99.0.10
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ arp timeout 14400
  no shutdown
 !
 interface Vlan50
  description Wireless clients default gateway
  ip address 10.10.50.1 255.255.255.0
  ip helper-address 10.99.0.10
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ arp timeout 14400
  no shutdown
 !
 interface Vlan99
  description Switch management
  ip address 10.99.0.21 255.255.255.0
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ arp timeout 14400
  no shutdown
 !
 router ospf 10
  router-id 10.99.0.21
+ auto-cost reference-bandwidth 100000
  passive-interface default
  no passive-interface TenGigabitEthernet1/1/1
  network 10.10.10.0 0.0.0.255 area 0
@@ -330,31 +650,50 @@ router ospf 10
 ip default-gateway 10.99.0.1
 ip forward-protocol nd
 no ip http server
+ip http authentication local
 ip http secure-server
+ip http secure-active-session-modules none
+ip http active-session-modules none
 ip ssh version 2
 ip ssh time-out 60
 ip ssh authentication-retries 3
+ip ssh logging events
 !
 snmp-server community NETOPS-RO RO MGMT-SOURCES
 snmp-server location Building-A Floor-2 IDF-2A
 snmp-server contact netops@example.com
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
 !
 logging host 10.99.0.50
 logging source-interface Vlan99
 !
+ntp source Vlan99
 ntp server 10.99.0.11 prefer
 ntp server 10.99.0.12
+!
+call-home
+ contact-email-addr netops@example.com
+ profile "CiscoTAC-1"
+  active
+  destination transport-method http
 !
 line con 0
  exec-timeout 10 0
  logging synchronous
+ stopbits 1
 line vty 0 4
  access-class MGMT-SOURCES in
  exec-timeout 9 0
+ logging synchronous
  transport input ssh
+ transport output none
 line vty 5 15
  access-class MGMT-SOURCES in
  exec-timeout 9 0
+ logging synchronous
  transport input ssh
+ transport output none
+!
+diagnostic bootup level minimal
 !
 end

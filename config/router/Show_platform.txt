@@ -1,0 +1,8 @@
+Chassis type: ISR4451-X/K9
+
+Slot      Type                State                 Insert time (ago)
+--------- ------------------- --------------------- -----------------
+0         ISR4451-X/K9        ok                    5w6d
+0/0       ISR4451-X-4x1GE     ok                    5w6d
+R0        ISR4451-X/K9        ok, active            5w6d
+F0        ISR4451-X/K9        ok, active            5w6d

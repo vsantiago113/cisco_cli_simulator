@@ -1,0 +1,11 @@
+interface: GigabitEthernet0/0/0
+    Crypto map tag: VPN-MAP, local addr 198.51.100.2
+
+   protected vrf: (none)
+   local  ident (addr/mask/prot/port): (10.10.0.0/255.255.0.0/0/0)
+   remote ident (addr/mask/prot/port): (10.200.0.0/255.255.0.0/0/0)
+   current_peer 203.0.113.10 port 500
+     PERMIT, flags={origin_is_acl,}
+    #pkts encaps: 18422, #pkts encrypt: 18422, #pkts digest: 18422
+    #pkts decaps: 17981, #pkts decrypt: 17981, #pkts verify: 17981
+    #send errors 0, #recv errors 0

@@ -1,0 +1,152 @@
+---
+- name: Collect Cisco device output files for the simulator
+  hosts: cisco_devices
+  gather_facts: false
+
+  vars:
+    device_type: switch
+    output_root: "{{ playbook_dir }}/../config"
+    output_dir: "{{ output_root }}/{{ device_type }}"
+
+    required_show_commands:
+      - command: show version
+        filename: Show_Version.txt
+      - command: show running-config
+        filename: Show_running-config.txt
+      - command: show running-config all
+        filename: Show_running-config_all.txt
+
+    common_show_commands:
+      - command: show interfaces
+        filename: Show_interfaces.txt
+      - command: show interfaces description
+        filename: Show_interfaces_description.txt
+      - command: show ip interface brief
+        filename: Show_ip_interface_brief.txt
+      - command: show ip route
+        filename: Show_ip_route.txt
+      - command: show ip arp
+        filename: Show_ip_arp.txt
+      - command: show ip cef
+        filename: Show_ip_cef.txt
+      - command: show ip protocols
+        filename: Show_ip_protocols.txt
+      - command: show access-lists
+        filename: Show_access-lists.txt
+      - command: show cdp neighbors
+        filename: Show_cdp_neighbors.txt
+      - command: show cdp neighbors detail
+        filename: Show_cdp_neighbors_detail.txt
+      - command: show lldp neighbors
+        filename: Show_lldp_neighbors.txt
+      - command: show inventory
+        filename: Show_inventory.txt
+      - command: show platform
+        filename: Show_platform.txt
+      - command: show environment all
+        filename: Show_environment_all.txt
+      - command: show license summary
+        filename: Show_license_summary.txt
+      - command: show logging
+        filename: Show_logging.txt
+      - command: show clock
+        filename: Show_clock.txt
+      - command: show users
+        filename: Show_users.txt
+      - command: show vrf
+        filename: Show_vrf.txt
+      - command: show ip vrf
+        filename: Show_ip_vrf.txt
+
+    switch_show_commands:
+      - command: show interfaces status
+        filename: Show_interfaces_status.txt
+      - command: show mac address-table
+        filename: Show_mac_address-table.txt
+      - command: show spanning-tree
+        filename: Show_spanning-tree.txt
+      - command: show etherchannel summary
+        filename: Show_etherchannel_summary.txt
+      - command: show power inline
+        filename: Show_power_inline.txt
+
+    router_show_commands:
+      - command: show controllers
+        filename: Show_controllers.txt
+      - command: show ip bgp summary
+        filename: Show_ip_bgp_summary.txt
+      - command: show ip ospf neighbor
+        filename: Show_ip_ospf_neighbor.txt
+      - command: show ip eigrp neighbors
+        filename: Show_ip_eigrp_neighbors.txt
+      - command: show ip nat translations
+        filename: Show_ip_nat_translations.txt
+      - command: show ip nat statistics
+        filename: Show_ip_nat_statistics.txt
+      - command: show crypto isakmp sa
+        filename: Show_crypto_isakmp_sa.txt
+      - command: show crypto ipsec sa
+        filename: Show_crypto_ipsec_sa.txt
+      - command: show standby brief
+        filename: Show_standby_brief.txt
+
+    selected_show_commands: >-
+      {{
+        required_show_commands
+        + common_show_commands
+        + (switch_show_commands if device_type == 'switch' else router_show_commands)
+      }}
+
+  pre_tasks:
+    - name: Validate device type
+      ansible.builtin.assert:
+        that:
+          - device_type in ['switch', 'router']
+        fail_msg: "device_type must be either 'switch' or 'router'"
+
+    - name: Create local output directory
+      ansible.builtin.file:
+        path: "{{ output_dir }}"
+        state: directory
+        mode: "0755"
+      delegate_to: localhost
+
+  tasks:
+    - name: Disable terminal paging
+      cisco.ios.ios_command:
+        commands:
+          - terminal length 0
+          - terminal width 512
+      changed_when: false
+
+    - name: Collect show command output
+      cisco.ios.ios_command:
+        commands:
+          - "{{ item.command }}"
+      loop: "{{ selected_show_commands }}"
+      loop_control:
+        label: "{{ item.command }}"
+      register: collected_outputs
+      ignore_errors: true
+      changed_when: false
+
+    - name: Save successful command outputs locally
+      ansible.builtin.copy:
+        dest: "{{ output_dir }}/{{ item.item.filename }}"
+        content: "{{ (item.stdout[0] | default('')) | trim }}\n"
+        mode: "0644"
+      loop: "{{ collected_outputs.results }}"
+      loop_control:
+        label: "{{ item.item.filename }}"
+      when:
+        - not (item.failed | default(false))
+        - item.stdout is defined
+      delegate_to: localhost
+
+    - name: Report commands that were not collected
+      ansible.builtin.debug:
+        msg: "Skipped {{ item.item.command }}: {{ item.msg | default('command failed or unsupported') }}"
+      loop: "{{ collected_outputs.results }}"
+      loop_control:
+        label: "{{ item.item.command }}"
+      when: item.failed | default(false)

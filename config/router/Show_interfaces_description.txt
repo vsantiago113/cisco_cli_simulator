@@ -1,0 +1,6 @@
+Interface                      Status         Protocol Description
+Gi0/0/0                        up             up       WAN handoff to ISP-A
+Gi0/0/1                        up             up       LAN transit to DIST-SW-01
+Gi0/0/2                        up             up       DMZ firewall transit
+Gi0/0/3                        admin down     down     Spare
+Lo0                            up             up       Router ID

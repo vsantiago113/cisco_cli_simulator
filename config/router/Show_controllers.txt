@@ -1,0 +1,9 @@
+GigabitEthernet0/0/0
+  Interface is up
+  Hardware is ISR4451-X-4x1GE
+  0 input errors, 0 CRC, 0 frame, 0 overrun
+
+GigabitEthernet0/0/1
+  Interface is up
+  Hardware is ISR4451-X-4x1GE
+  0 input errors, 0 CRC, 0 frame, 0 overrun

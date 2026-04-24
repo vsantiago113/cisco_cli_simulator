@@ -1,0 +1,27 @@
+Port         Name               Status       Vlan       Duplex  Speed Type
+Gi1/0/1      User workstation - connected    10         a-full a-1000 10/100/1000BaseTX
+Gi1/0/2      User workstation - connected    10         a-full a-1000 10/100/1000BaseTX
+Gi1/0/3      Conference Room P connected    10         a-full a-1000 10/100/1000BaseTX
+Gi1/0/4      Network Printer - connected    30         a-full a-1000 10/100/1000BaseTX
+Gi1/0/5      Security Camera - connected    40         a-full  a-100 10/100/1000BaseTX
+Gi1/0/6      Wireless AP - Lob connected    trunk      a-full a-1000 10/100/1000BaseTX
+Gi1/0/7      Wireless AP - Wes connected    trunk      a-full a-1000 10/100/1000BaseTX
+Gi1/0/8      Lab bench test p disabled     10           auto   auto 10/100/1000BaseTX
+Gi1/0/9      Spare            disabled     999          auto   auto 10/100/1000BaseTX
+Gi1/0/10     Spare            disabled     999          auto   auto 10/100/1000BaseTX
+Gi1/0/11     Spare            disabled     999          auto   auto 10/100/1000BaseTX
+Gi1/0/12     Spare            disabled     999          auto   auto 10/100/1000BaseTX
+Gi1/0/13     User workstation - connected    10         a-full a-1000 10/100/1000BaseTX
+Gi1/0/14     User workstation - connected    10         a-full a-1000 10/100/1000BaseTX
+Gi1/0/15     Badge reader     connected    40         a-full  a-100 10/100/1000BaseTX
+Gi1/0/16     Printer - Shippi connected    30         a-full a-1000 10/100/1000BaseTX
+Gi1/0/17     Spare            disabled     999          auto   auto 10/100/1000BaseTX
+Gi1/0/18     Spare            disabled     999          auto   auto 10/100/1000BaseTX
+Gi1/0/19     Spare            disabled     999          auto   auto 10/100/1000BaseTX
+Gi1/0/20     Spare            disabled     999          auto   auto 10/100/1000BaseTX
+Gi1/0/21     Uplink member to connected    trunk      a-full a-1000 10/100/1000BaseTX
+Gi1/0/22     Uplink member to connected    trunk      a-full a-1000 10/100/1000BaseTX
+Gi1/0/23     Maintenance lapt connected    99         a-full a-1000 10/100/1000BaseTX
+Gi1/0/24     Disabled - reser disabled     999          auto   auto 10/100/1000BaseTX
+Te1/1/1      Routed link to W connected    routed     a-full    10G SFP-10GBase-SR
+Te1/1/2      Spare SFP uplink disabled     routed       auto   auto SFP-10GBase-SR

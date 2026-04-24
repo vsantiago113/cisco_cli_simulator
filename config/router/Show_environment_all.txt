@@ -1,0 +1,9 @@
+SYSTEM POWER is OK
+SYSTEM TEMPERATURE is OK
+Power Supply 0 is OK
+Power Supply 1 is OK
+Fan Tray is OK
+
+Inlet temperature: 29 Celsius, Normal
+Outlet temperature: 41 Celsius, Normal
+Hotspot temperature: 46 Celsius, Normal

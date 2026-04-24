@@ -1,0 +1,15 @@
+Switch  Ports    Model                Serial No.   MAC address     Hw Ver.       Sw Ver.
+------  -----   ---------             -----------  --------------  -------       --------
+ 1       32     C9300-24P              FCW2448L0AB  706d.15aa.2000  V05           17.09.05
+
+Switch/Stack Mac Address : 706d.15aa.2000 - Local Mac Address
+Mac persistency wait time: Indefinite
+                                   Current
+Switch#   Role        Priority      State
+--------------------------------------------------------
+*1        Active      15            Ready
+
+Stack Port Status             Neighbors
+  Switch#  Port 1    Port 2      Port 1    Port 2
+  --------------------------------------------------------
+    1      Down      Down        None      None

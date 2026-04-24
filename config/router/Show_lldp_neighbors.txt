@@ -1,0 +1,5 @@
+Device ID           Local Intf     Hold-time  Capability      Port ID
+DIST-SW-01          Gi0/0/1        120        B,R             Te1/1/1
+ISP-EDGE-A          Gi0/0/0        120        R               Gi0/0/1
+
+Total entries displayed: 2

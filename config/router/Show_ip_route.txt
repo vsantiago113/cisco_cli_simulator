@@ -1,0 +1,17 @@
+Codes: L - local, C - connected, S - static, O - OSPF, B - BGP
+       D - EIGRP, EX - EIGRP external, * - candidate default
+
+Gateway of last resort is 198.51.100.1 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 198.51.100.1
+      10.0.0.0/8 is variably subnetted, 4 subnets, 2 masks
+O        10.10.0.0/16 [110/11] via 10.255.0.2, 5w6d, GigabitEthernet0/0/1
+C        10.255.0.0/30 is directly connected, GigabitEthernet0/0/1
+L        10.255.0.1/32 is directly connected, GigabitEthernet0/0/1
+C        10.255.255.1/32 is directly connected, Loopback0
+      172.16.0.0/16 is variably subnetted, 2 subnets, 2 masks
+C        172.16.0.0/30 is directly connected, GigabitEthernet0/0/2
+L        172.16.0.1/32 is directly connected, GigabitEthernet0/0/2
+      198.51.100.0/24 is variably subnetted, 2 subnets, 2 masks
+C        198.51.100.0/30 is directly connected, GigabitEthernet0/0/0
+L        198.51.100.2/32 is directly connected, GigabitEthernet0/0/0

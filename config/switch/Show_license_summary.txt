@@ -1,0 +1,30 @@
+License Usage:
+  License                 Entitlement Tag               Count Status
+  -----------------------------------------------------------------------------
+  network-advantage       (C9300 Network Advantage)         1 IN USE
+  dna-advantage           (C9300 DNA Advantage)             1 IN USE
+
+Cisco Smart Licensing is ENABLED
+
+Registration:
+  Status: REGISTERED
+  Smart Account: Example Corp
+  Virtual Account: Network Lab
+  Export-Controlled Functionality: Allowed
+
+License Authorization:
+  Status: AUTHORIZED
+  Last Communication Attempt: SUCCEEDED
+  Next Communication Attempt: Apr 24 2026 20:21:41 CST
+
+Utility:
+  Status: DISABLED
+
+Data Privacy:
+  Sending Hostname: yes
+  Callhome hostname privacy: DISABLED
+  Smart Licensing hostname privacy: DISABLED
+  Version privacy: DISABLED
+
+Transport:
+  Type: Callhome

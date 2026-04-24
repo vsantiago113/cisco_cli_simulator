@@ -1,0 +1,35 @@
+Interface                      Status         Protocol Description
+Gi1/0/1                        up             up       User workstation - Finance
+Gi1/0/2                        up             up       User workstation - Engineering
+Gi1/0/3                        up             up       Conference Room Phone
+Gi1/0/4                        up             up       Network Printer - 2nd Floor
+Gi1/0/5                        up             up       Security Camera - East Hall
+Gi1/0/6                        up             up       Wireless AP - Lobby
+Gi1/0/7                        up             up       Wireless AP - West Wing
+Gi1/0/8                        admin down     down     Lab bench test port
+Gi1/0/9                        admin down     down     Spare
+Gi1/0/10                       admin down     down     Spare
+Gi1/0/11                       admin down     down     Spare
+Gi1/0/12                       admin down     down     Spare
+Gi1/0/13                       up             up       User workstation - Open Office
+Gi1/0/14                       up             up       User workstation - Open Office
+Gi1/0/15                       up             up       Badge reader
+Gi1/0/16                       up             up       Printer - Shipping
+Gi1/0/17                       admin down     down     Spare
+Gi1/0/18                       admin down     down     Spare
+Gi1/0/19                       admin down     down     Spare
+Gi1/0/20                       admin down     down     Spare
+Gi1/0/21                       up             up       Uplink member to DIST-SW-01 Gi1/0/21
+Gi1/0/22                       up             up       Uplink member to DIST-SW-01 Gi1/0/22
+Gi1/0/23                       up             up       Maintenance laptop
+Gi1/0/24                       admin down     down     Disabled - reserved for staging
+Te1/1/1                        up             up       Routed link to WAN-RTR-01
+Te1/1/2                        admin down     down     Spare SFP uplink
+Po1                            up             up       Uplink to DIST-SW-01
+Vl1                            admin down     down     Default VLAN - unused
+Vl10                           up             up       Users default gateway
+Vl20                           up             up       Voice default gateway
+Vl30                           up             up       Printers default gateway
+Vl40                           up             up       Cameras default gateway
+Vl50                           up             up       Wireless clients default gateway
+Vl99                           up             up       Switch management

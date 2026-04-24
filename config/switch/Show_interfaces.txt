@@ -1,0 +1,67 @@
+GigabitEthernet1/0/1 is up, line protocol is up (connected)
+  Hardware is Gigabit Ethernet, address is 706d.15aa.2001 (bia 706d.15aa.2001)
+  Description: User workstation - Finance
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  Full-duplex, 1000Mb/s, media type is 10/100/1000BaseTX
+  input flow-control is off, output flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:01, output 00:00:00, output hang never
+  Last clearing of "show interface" counters 8w2d
+  Input queue: 0/2000/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  5 minute input rate 12000 bits/sec, 18 packets/sec
+  5 minute output rate 21000 bits/sec, 24 packets/sec
+     12894421 packets input, 1676403719 bytes, 0 no buffer
+     Received 252403 broadcasts (216411 multicasts)
+     0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 216411 multicast, 0 pause input
+     16382920 packets output, 2429103471 bytes, 0 underruns
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+GigabitEthernet1/0/21 is up, line protocol is up (connected)
+  Hardware is Gigabit Ethernet, address is 706d.15aa.2015 (bia 706d.15aa.2015)
+  Description: Uplink member to DIST-SW-01 Gi1/0/21
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec,
+     reliability 255/255, txload 2/255, rxload 2/255
+  Encapsulation ARPA, loopback not set
+  Full-duplex, 1000Mb/s, media type is 10/100/1000BaseTX
+  Last clearing of "show interface" counters 8w2d
+  5 minute input rate 141000 bits/sec, 183 packets/sec
+  5 minute output rate 119000 bits/sec, 169 packets/sec
+     89183744 packets input, 105318487211 bytes, 0 no buffer
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     77254110 packets output, 81211639012 bytes, 0 underruns
+     0 output errors, 0 collisions, 2 interface resets
+TenGigabitEthernet1/1/1 is up, line protocol is up (connected)
+  Hardware is Ten Gigabit Ethernet, address is 706d.15aa.2fff (bia 706d.15aa.2fff)
+  Description: Routed link to WAN-RTR-01
+  Internet address is 10.255.0.2/30
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Full-duplex, 10Gb/s, media type is SFP-10GBase-SR
+  Last clearing of "show interface" counters 8w2d
+  5 minute input rate 386000 bits/sec, 312 packets/sec
+  5 minute output rate 271000 bits/sec, 288 packets/sec
+     148903210 packets input, 211905430111 bytes, 0 no buffer
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     131822044 packets output, 183010224909 bytes, 0 underruns
+     0 output errors, 0 collisions, 0 interface resets
+Vlan99 is up, line protocol is up
+  Hardware is Ethernet SVI, address is 706d.15aa.2000 (bia 706d.15aa.2000)
+  Description: Switch management
+  Internet address is 10.99.0.21/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last clearing of "show interface" counters never
+  5 minute input rate 7000 bits/sec, 9 packets/sec
+  5 minute output rate 9000 bits/sec, 11 packets/sec

@@ -1,0 +1,18 @@
+-------------------------
+Device ID: DIST-SW-01
+Entry address(es):
+  IP address: 10.99.0.21
+Platform: cisco C9300-24P,  Capabilities: Router Switch IGMP
+Interface: GigabitEthernet0/0/1,  Port ID (outgoing port): TenGigabitEthernet1/1/1
+Holdtime : 142 sec
+
+Version :
+Cisco IOS XE Software, Version 17.09.05
+
+-------------------------
+Device ID: ISP-EDGE-A
+Entry address(es):
+  IP address: 198.51.100.1
+Platform: cisco ASR1001-X,  Capabilities: Router
+Interface: GigabitEthernet0/0/0,  Port ID (outgoing port): GigabitEthernet0/0/1
+Holdtime : 156 sec

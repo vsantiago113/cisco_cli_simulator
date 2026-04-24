@@ -1,0 +1,79 @@
+-------------------------
+Device ID: DIST-SW-01
+Entry address(es):
+  IP address: 10.99.0.11
+Platform: cisco C9300-48U,  Capabilities: Router Switch IGMP
+Interface: GigabitEthernet1/0/21,  Port ID (outgoing port): GigabitEthernet1/0/21
+Holdtime : 153 sec
+
+Version :
+Cisco IOS XE Software, Version 17.09.05
+
+advertisement version: 2
+Duplex: full
+Native VLAN: 999
+Management address(es):
+  IP address: 10.99.0.11
+
+-------------------------
+Device ID: DIST-SW-01
+Entry address(es):
+  IP address: 10.99.0.11
+Platform: cisco C9300-48U,  Capabilities: Router Switch IGMP
+Interface: GigabitEthernet1/0/22,  Port ID (outgoing port): GigabitEthernet1/0/22
+Holdtime : 153 sec
+
+Version :
+Cisco IOS XE Software, Version 17.09.05
+
+advertisement version: 2
+Duplex: full
+Native VLAN: 999
+Management address(es):
+  IP address: 10.99.0.11
+
+-------------------------
+Device ID: WAN-RTR-01
+Entry address(es):
+  IP address: 10.255.0.1
+Platform: cisco ISR4451/K9,  Capabilities: Router
+Interface: TenGigabitEthernet1/1/1,  Port ID (outgoing port): TenGigabitEthernet0/0/0
+Holdtime : 134 sec
+
+Version :
+Cisco IOS XE Software, Version 17.09.04
+
+advertisement version: 2
+Duplex: full
+Management address(es):
+  IP address: 10.255.0.1
+
+-------------------------
+Device ID: AP-LOBBY
+Entry address(es):
+  IP address: 10.99.0.61
+Platform: cisco AIR-AP3802I-B-K9,  Capabilities: Trans-Bridge
+Interface: GigabitEthernet1/0/6,  Port ID (outgoing port): GigabitEthernet0
+Holdtime : 178 sec
+
+Version :
+Cisco AP Software, ap3g3-k9w8 Version 8.10.190.0
+
+advertisement version: 2
+Duplex: full
+Power drawn: 15.400 Watts
+
+-------------------------
+Device ID: AP-WEST
+Entry address(es):
+  IP address: 10.99.0.62
+Platform: cisco AIR-AP3802I-B-K9,  Capabilities: Trans-Bridge
+Interface: GigabitEthernet1/0/7,  Port ID (outgoing port): GigabitEthernet0
+Holdtime : 176 sec
+
+Version :
+Cisco AP Software, ap3g3-k9w8 Version 8.10.190.0
+
+advertisement version: 2
+Duplex: full
+Power drawn: 15.400 Watts

@@ -1,0 +1,5 @@
+NAME: "Chassis", DESCR: "Cisco ISR4451-X Chassis"
+PID: ISR4451-X/K9      , VID: V06  , SN: FJC2449A0RT
+
+NAME: "module 0", DESCR: "Cisco ISR4451-X Motherboard"
+PID: ISR4451-X/K9      , VID: V06  , SN: FOC24491RT0

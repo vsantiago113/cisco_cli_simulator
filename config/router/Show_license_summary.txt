@@ -1,0 +1,11 @@
+License Usage:
+  License                 Entitlement Tag               Count Status
+  -----------------------------------------------------------------------------
+  securityk9              (ISR_4400_Security)               1 IN USE
+  appxk9                  (ISR_4400_APPX)                   1 IN USE
+
+Cisco Smart Licensing is ENABLED
+Registration:
+  Status: REGISTERED
+License Authorization:
+  Status: AUTHORIZED

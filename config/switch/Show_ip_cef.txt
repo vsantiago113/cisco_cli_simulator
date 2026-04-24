@@ -1,0 +1,18 @@
+Prefix               Next Hop             Interface
+0.0.0.0/0            10.255.0.1           TenGigabitEthernet1/1/1
+0.0.0.0/32           receive
+10.10.10.0/24        attached             Vlan10
+10.10.10.0/32        receive              Vlan10
+10.10.10.1/32        receive              Vlan10
+10.10.20.0/24        attached             Vlan20
+10.10.20.1/32        receive              Vlan20
+10.10.30.0/24        attached             Vlan30
+10.10.40.0/24        attached             Vlan40
+10.10.50.0/24        attached             Vlan50
+10.99.0.0/24         attached             Vlan99
+10.99.0.21/32        receive              Vlan99
+10.200.0.0/16        10.255.0.1           TenGigabitEthernet1/1/1
+10.255.0.0/30        attached             TenGigabitEthernet1/1/1
+10.255.0.2/32        receive              TenGigabitEthernet1/1/1
+224.0.0.0/4          drop
+255.255.255.255/32   receive

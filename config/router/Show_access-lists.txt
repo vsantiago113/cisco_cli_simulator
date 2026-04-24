@@ -1,0 +1,5 @@
+Standard IP access list MGMT-SOURCES
+    10 permit 10.99.0.0, wildcard bits 0.0.0.255 (91 matches)
+    90 deny any log (2 matches)
+Standard IP access list NAT-SOURCES
+    10 permit 10.10.0.0, wildcard bits 0.0.255.255 (48321 matches)

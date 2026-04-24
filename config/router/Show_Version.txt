@@ -1,0 +1,34 @@
+Cisco IOS XE Software, Version 17.09.05
+Cisco IOS Software [Cupertino], ISR Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.9.5, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2025 by Cisco Systems, Inc.
+Compiled Tue 28-Oct-25 08:43 by mcpre
+
+ROM: IOS-XE ROMMON
+
+RTR-WAN-01 uptime is 5 weeks, 6 days, 2 hours, 44 minutes
+System returned to ROM by Reload Command
+System restarted at 07:14:33 CST Tue Mar 10 2026
+System image file is "bootflash:isr4400-universalk9.17.09.05.SPA.bin"
+Last reload reason: Reload Command
+
+cisco ISR4451-X/K9 (2RU) processor with 1795976K/6147K bytes of memory.
+Processor board ID FJC2449A0RT
+4 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+16777216K bytes of physical memory.
+7341807K bytes of flash memory at bootflash:.
+
+Technology Package License Information:
+
+------------------------------------------------------------------------------
+Technology    Technology-package           Technology-package
+              Current       Type           Next reboot
+------------------------------------------------------------------------------
+appxk9        appxk9        RightToUse     appxk9
+uck9          None          None           None
+securityk9    securityk9    RightToUse     securityk9
+ipbase        ipbasek9      Permanent      ipbasek9
+
+Configuration register is 0x2102

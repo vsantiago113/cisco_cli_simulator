@@ -1,0 +1,26 @@
+Switch 1 FAN 1 is OK
+Switch 1 FAN 2 is OK
+Switch 1 FAN 3 is OK
+
+Switch 1: SYSTEM TEMPERATURE is OK
+Inlet Temperature Value: 30 Degree Celsius
+Temperature State: GREEN
+Yellow Threshold : 46 Degree Celsius
+Red Threshold    : 56 Degree Celsius
+
+Hotspot Temperature Value: 43 Degree Celsius
+Temperature State: GREEN
+Yellow Threshold : 75 Degree Celsius
+Red Threshold    : 85 Degree Celsius
+
+SW  PID                 Serial#     Status           Sys Pwr  PoE Pwr  Watts
+--  ------------------  ----------  ---------------  -------  -------  -----
+1A  PWR-C1-715WAC-P     DCA2448A01B OK              Good     Good     715
+1B  PWR-C1-715WAC-P     DCA2448A01C OK              Good     Good     715
+
+Power supplies needed by system: 1
+Power supplies currently available: 2
+
+System Power Total     : 1430 Watts
+System Power Used      : 402 Watts
+System Power Remaining : 1028 Watts

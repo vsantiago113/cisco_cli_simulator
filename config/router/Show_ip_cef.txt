@@ -1,0 +1,8 @@
+Prefix               Next Hop             Interface
+0.0.0.0/0            198.51.100.1         GigabitEthernet0/0/0
+10.10.0.0/16         10.255.0.2           GigabitEthernet0/0/1
+10.255.0.0/30        attached             GigabitEthernet0/0/1
+10.255.0.1/32        receive              GigabitEthernet0/0/1
+10.255.255.1/32      receive              Loopback0
+172.16.0.0/30        attached             GigabitEthernet0/0/2
+198.51.100.0/30      attached             GigabitEthernet0/0/0

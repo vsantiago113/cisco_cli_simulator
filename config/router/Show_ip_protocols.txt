@@ -1,0 +1,16 @@
+Routing Protocol is "ospf 10"
+  Router ID 10.255.255.1
+  Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+  Maximum path: 4
+  Routing for Networks:
+    10.255.0.0 0.0.0.3 area 0
+    10.255.255.1 0.0.0.0 area 0
+  Passive Interface(s):
+    GigabitEthernet0/0/0
+    GigabitEthernet0/0/2
+    GigabitEthernet0/0/3
+    Loopback0
+  Routing Information Sources:
+    Gateway         Distance      Last Update
+    10.255.0.2           110      00:00:12
+  Distance: (default is 110)

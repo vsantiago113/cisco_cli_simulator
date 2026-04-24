@@ -1,0 +1,5 @@
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+DIST-SW-01       Gig 0/0/1         142             R S I   C9300-24P Ten 1/1/1
+ISP-EDGE-A       Gig 0/0/0         156                R    ASR1001   Gig 0/0/1
+
+Total cdp entries displayed : 2

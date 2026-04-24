@@ -1,0 +1,18 @@
+Available:370.0(w)  Used:52.3(w)  Remaining:317.7(w)
+
+Interface Admin  Oper       Power   Device              Class Max
+                            (Watts)
+--------- ------ ---------- ------- ------------------- ----- ----
+Gi1/0/1   auto   off        0.0     n/a                 n/a   30.0
+Gi1/0/2   auto   off        0.0     n/a                 n/a   30.0
+Gi1/0/3   auto   on         6.5     IP Phone 8841       3     30.0
+Gi1/0/4   auto   off        0.0     n/a                 n/a   30.0
+Gi1/0/5   static on         15.4    IP Camera           3     15.4
+Gi1/0/6   auto   on         15.2    AIR-AP3802I-B-K9    4     30.0
+Gi1/0/7   auto   on         15.2    AIR-AP3802I-B-K9    4     30.0
+Gi1/0/8   auto   off        0.0     n/a                 n/a   30.0
+Gi1/0/13  auto   off        0.0     n/a                 n/a   30.0
+Gi1/0/14  auto   off        0.0     n/a                 n/a   30.0
+Gi1/0/15  auto   off        0.0     n/a                 n/a   30.0
+Gi1/0/16  auto   off        0.0     n/a                 n/a   30.0
+Gi1/0/23  auto   off        0.0     n/a                 n/a   30.0

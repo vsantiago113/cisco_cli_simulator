@@ -1,0 +1,2 @@
+  Name                             Default RD            Interfaces
+  Mgmt-vrf                         <not set>             Gi0/0

@@ -1,0 +1,8 @@
+Syslog logging: enabled
+    Console logging: level warnings
+    Buffer logging: level informational, 217 messages logged
+    Trap logging: level informational
+
+Log Buffer (64000 bytes):
+Apr 24 09:19:28.114 CST: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (10.99.0.50)
+Apr 24 09:22:04.881 CST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: admin] [Source: 10.99.0.50] [localport: 22]

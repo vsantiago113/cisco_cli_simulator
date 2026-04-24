@@ -1,0 +1,27 @@
+*** IP Routing is NSF aware ***
+
+Routing Protocol is "ospf 10"
+  Outgoing update filter list for all interfaces is not set
+  Incoming update filter list for all interfaces is not set
+  Router ID 10.99.0.21
+  Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+  Maximum path: 4
+  Routing for Networks:
+    10.10.10.0 0.0.0.255 area 0
+    10.10.20.0 0.0.0.255 area 0
+    10.10.30.0 0.0.0.255 area 0
+    10.10.40.0 0.0.0.255 area 0
+    10.10.50.0 0.0.0.255 area 0
+    10.99.0.0 0.0.0.255 area 0
+    10.255.0.0 0.0.0.3 area 0
+  Passive Interface(s):
+    Vlan10
+    Vlan20
+    Vlan30
+    Vlan40
+    Vlan50
+    Vlan99
+  Routing Information Sources:
+    Gateway         Distance      Last Update
+    10.255.0.1           110      00:00:18
+  Distance: (default is 110)

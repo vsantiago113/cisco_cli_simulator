@@ -1,0 +1,24 @@
+GigabitEthernet0/0/0 is up, line protocol is up
+  Hardware is ISR4451-X-4x1GE, address is 00a7.42aa.0000
+  Description: WAN handoff to ISP-A
+  Internet address is 198.51.100.2/30
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  5 minute input rate 812000 bits/sec, 614 packets/sec
+  5 minute output rate 543000 bits/sec, 489 packets/sec
+     328827491 packets input, 421298239111 bytes, 0 no buffer
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     284010219 packets output, 350112093410 bytes, 0 underruns
+     0 output errors, 0 collisions, 0 interface resets
+GigabitEthernet0/0/1 is up, line protocol is up
+  Hardware is ISR4451-X-4x1GE, address is 00a7.42aa.0001
+  Description: LAN transit to DIST-SW-01
+  Internet address is 10.255.0.1/30
+  5 minute input rate 271000 bits/sec, 288 packets/sec
+  5 minute output rate 386000 bits/sec, 312 packets/sec
+Loopback0 is up, line protocol is up
+  Hardware is Loopback
+  Description: Router ID
+  Internet address is 10.255.255.1/32

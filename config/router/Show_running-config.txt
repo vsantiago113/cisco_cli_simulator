@@ -1,0 +1,98 @@
+Building configuration...
+
+Current configuration : 8914 bytes
+!
+! Last configuration change at 09:19:28 CST Fri Apr 24 2026 by admin
+!
+version 17.9
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime msec localtime show-timezone
+service password-encryption
+!
+hostname RTR-WAN-01
+!
+boot-start-marker
+boot system bootflash:isr4400-universalk9.17.09.05.SPA.bin
+boot-end-marker
+!
+logging buffered 64000 informational
+enable secret 9 $9$routerexample$N7D0k8lbiP7w9Wakm0vPp4QnQYxUQxV1pQ3k9qvCkT.
+!
+aaa new-model
+aaa authentication login default local
+aaa authorization exec default local
+!
+clock timezone CST -6 0
+clock summer-time CDT recurring
+!
+ip domain name lab.example.com
+ip name-server 10.99.0.10 10.99.0.11
+ip cef
+!
+username admin privilege 15 secret 9 $9$routeradmin$93fI8BKbq7jiO9SfM2JfhQ2fBlLStE6bVlQFojh3rn.
+!
+interface GigabitEthernet0/0/0
+ description WAN handoff to ISP-A
+ ip address 198.51.100.2 255.255.255.252
+ ip nat outside
+ negotiation auto
+ no shutdown
+!
+interface GigabitEthernet0/0/1
+ description LAN transit to DIST-SW-01
+ ip address 10.255.0.1 255.255.255.252
+ ip nat inside
+ ip ospf network point-to-point
+ ip ospf 10 area 0
+ negotiation auto
+ no shutdown
+!
+interface GigabitEthernet0/0/2
+ description DMZ firewall transit
+ ip address 172.16.0.1 255.255.255.252
+ negotiation auto
+ no shutdown
+!
+interface GigabitEthernet0/0/3
+ description Spare
+ no ip address
+ shutdown
+!
+interface Loopback0
+ description Router ID
+ ip address 10.255.255.1 255.255.255.255
+!
+router ospf 10
+ router-id 10.255.255.1
+ passive-interface default
+ no passive-interface GigabitEthernet0/0/1
+ network 10.255.0.0 0.0.0.3 area 0
+ network 10.255.255.1 0.0.0.0 area 0
+ default-information originate always
+!
+ip nat inside source list NAT-SOURCES interface GigabitEthernet0/0/0 overload
+ip route 0.0.0.0 0.0.0.0 198.51.100.1
+ip ssh version 2
+!
+ip access-list standard MGMT-SOURCES
+ 10 permit 10.99.0.0 0.0.0.255
+ 90 deny any log
+ip access-list standard NAT-SOURCES
+ 10 permit 10.10.0.0 0.0.255.255
+!
+logging host 10.99.0.50
+ntp server 10.99.0.11 prefer
+!
+line con 0
+ exec-timeout 10 0
+ logging synchronous
+line vty 0 4
+ access-class MGMT-SOURCES in
+ exec-timeout 9 0
+ transport input ssh
+line vty 5 15
+ access-class MGMT-SOURCES in
+ exec-timeout 9 0
+ transport input ssh
+!
+end

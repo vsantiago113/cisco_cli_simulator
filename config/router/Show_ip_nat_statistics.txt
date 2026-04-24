@@ -1,0 +1,10 @@
+Total active translations: 2 (0 static, 2 dynamic; 2 extended)
+Outside interfaces:
+  GigabitEthernet0/0/0
+Inside interfaces:
+  GigabitEthernet0/0/1
+Hits: 48219  Misses: 113
+Expired translations: 902
+Dynamic mappings:
+-- Inside Source
+[Id: 1] access-list NAT-SOURCES interface GigabitEthernet0/0/0 refcount 2
